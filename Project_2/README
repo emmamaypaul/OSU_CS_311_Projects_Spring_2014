@@ -1,0 +1,14 @@
+
+	A note about permissions:  Anything you put in the top class
+	directory will be world readable through file system access.
+	Anything you put in public_html will be readable from the web.
+	A directory named 'private' has been provided that is only
+	available to you (and your TAs if you chose to have TA
+	access).  The 'private' directory won't allow student access.
+	If you create any other directories or files within the main
+	class directory, make sure that you check and understand the
+	permissions.  Unless you change the permissions, it will allow
+	open read access to anyone.
+
+	Feel free to mail support if you have any questions...
+    

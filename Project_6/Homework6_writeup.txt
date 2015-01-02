@@ -1,0 +1,14 @@
+﻿Emma Paul 
+paule@onid.oregonstate.edu
+CS311-400
+Homework #6
+
+How I partitioned the problem space so that each process or thread gets (nearly) the same amount of work: 
+
+	My shared memory and thread files partition the problem in the same manner. First, my main process loops through the bit-array and marks everything as 1, or prime. It then proceeds to mark down index 0 and 1 as non-primes. Afterwards it marks all evens as non-prime. Then either child processes or threads take the next found prime number (following the Sieve of Erasthene's algorithm), and locks that number, either with a mutex or semaphore, and update's a local variable to equal that number (which is a global variable and the next found prime). Once the process or thread finds a new prime in the array, it updates the variable, and unlocks it so that another thread or process can grab it and start doing work. That way, while the current child process or thread marks down all the multiples of the local variable, other processes or threads are marking down multiples in the bit-array as well, conducting parallel processing. Though the work load differs due to the fact that as the numbers get higher, the count of marked down multiples up to the max lowers, this is how I attempted to share the same amount of work. 
+
+How might speedup differ with hyper-threading and just CPU/core count?
+
+Hyper-threading with with a higher CPU core count results in faster execution, as seen in Intels Hyper-Threading Technology which doubls the number of software threads per CPU core to a maxiumum of 20. (http://www.intel.com/content/dam/www/public/us/en/documents/white-papers/virtualization-xeon-core-count-impacts-performance-paper.pdf). The idea of hyer-threading is to achieve parallel processing simultaneously, however performance doesn't necessarily improve drastically because, though some can be silmultaneos, others must be performed sequentally, therefore the performance speed up isn't as drastic. That is, even when performance gains are minimal the power consumption savings can be considerable. (http://en.wikipedia.org/wiki/Simultaneous_multithreading) So though in theory the speed up would be higher wity hyper-threading and just CPU/core count, it is not always the case since, with HyperThreading, a physical core is split up into two logical cores.” (http://scalibq.wordpress.com/2012/06/01/multi-core-and-multi-threading/). 
+
+

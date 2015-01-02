@@ -1,0 +1,65 @@
+﻿Emma Paul
+paule@onid.oregonstate.edu 
+CS311-400
+Homework #1
+
+2) What are Revision Control Systems?
+
+	Revision Control Systems are, in general, a way to store revisions done on a program or software. If you were writing an essay, you would save your first draft, second, third, ect until you have created your final draft. For programs and software creation, it's important to keep copies of the different drafts as the program gets built. Revision Control Systems have tools that allow for multiple versions of code to be saved, tested, and manipulated by the person/and or team of people whom are creating the program or software. 
+	Specifically, Revision Control System, or RCS, is a software that was created to be a tool for UNIX systems. The software provides tools to deal with revisions of programs.  
+
+Why are they useful?
+
+	As a program gets more and more complex, it's important to save working versions along the way.  When you find yourself in a situation where, after making some additions to your program, it stops working, it can sometimes be extremely difficult to back track to the point where it was working. That's why it's important to keep versions of the program as you progress and build it. 
+	The RCS software allows a developer to implement changes and test changes to a source file, while maintaining the original source file. If a team of people are building a program a developer can work on their part, as well as test it, and supplement it to the program once they are satisfied with their code. By allowing developers to branch off and work on code before implementing it back to the program, there is less room for error in a team project. It allows for the ability to back track as well as try code out without it breaking your original code, which makes it a very powerful tool for coding since it helps eliminate error. 
+
+ Name 4 examples of revision control systems. 
+
+	Bazaar, , SVN (Subversion), Git, and Mercurial. 
+
+List 3 common commands for each of the 4 revision control systems you identify. 
+	
+	A common command is to create a new project that you store on a remote server. For Bazaar the command is “bzr init”. For SVN, you must first enter something like “svnadmin create c:\NewProject”, which will first create a directory called “NewProject”, and then you can it put it within the trunk of the direcotry like “NewProject/trunk/NewFile.cs”. For Git you can use “git init” which wil first create a .git directory for a new project. For Mercurial you can use “cd project” then “hg init”. 
+	A second common command is create a personal copy some code and branching it to work on new versionof it. For Bazaar, “bxr init-repo ~/bzr-gtk” then “bzr branch lp:~bzr/bzr-gtk/trunk ~/bzr-gtk/newVersion”, which will download all the files and revision history from the projects trunk and create a copy called “newVersion”. For SVN you can use “svn copy http://svn.myrepo.com/trunk http://svn.myrepo.com/brances/newBranch” which copies the trunk from the given source path to create a branch called “newBranch”. For Git, you can use “git checkout -b <new_branch_name> [source_branch_name]”. For Mercurial you can use “hg branch branch-l” which starts a new branch name. 
+	A third common command is to make changes to make changes to a project. For Bazaar you use the command “bzr commit”. For SVN you can use “svn update <filename>”. For Git you can use “git add filename”. For Mercurial you can use “hg clone [url to project]”. 
+
+3) Describe the difference between redirection and piping on Unix.
+
+Piping on Unix streams output (using “ > ”), passing data from one program or utility to another. Piping can be done in a series, so the output of one program can be the input of another, and it's output can be the input to another, ect. Redirecting on Unix passes (using “ | ”) standard input read from one file and writes the output to another file as standard output. Using standard input and output allows for the redirecting of data to be possible. Piping passes data for utilites (like commands) or programs, redirecting passes data for files. 
+
+4) Give a find command that will run the file command on every regular file.
+
+I believe this is it: “find ./ -type f | file -f -”. First, you use the “find” command to find the files, “./” says withing the current directory, “-type f” indicates all regular files. Once you find all regular files you need to pipe that info to file. However, piping info sends it as standard output, and the file command expects command line arguments rather than standard input, so you have to use “-f' which is the option to read filenames, one per line, and lastly using “-” after the file command to determine the file type. 
+
+
+5) What is the Unix Command make and how is it useful?
+
+The “make” command runs the commands of a makefile. The source code inside a makefile tells the make command how to interpret and run the files in the makefile. It is useful for larger programs that have multiple files where you want to run and test all or many of the files at once. A handy aspect of  the make command is that the makefile has a database, and the make command refers to the makefile database so that it can check to see which programs need to be recompiled (due to things like changes made and the timestamp of the last compilation). The make command, along with the makefile, allow for programs to be compiled only if necessary, and all at once, which makes it a useful tool when running and testing programs. 
+
+References Used for each question: 
+
+2) 
+http://en.wikipedia.org/wiki/Revision_control
+http://www.yolinux.com/TUTORIALS/LinuxTutorialRCSintro.html
+http://jodypaul.com/SWE/RCSTutorial/RCSTutorial.html
+http://www.smashingmagazine.com/2008/09/18/the-top-7-open-source-version-control-systems/
+http://en.wikipedia.org/wiki/GNU_Bazaar
+http://codefez.com/creating-projects-in-subversion-trunk-tags-branches/
+http://git-scm.com/book/en/Git-Basics-Getting-a-Git-Repository
+http://mercurial.selenic.com/wiki/QuickStart
+http://nedbatchelder.com/text/quicksvnbranch.html
+http://www.opennms.org/wiki/Developing_with_Git
+
+
+3)
+http://www.westwind.com/reference/os-x/commandline/pipes.html
+http://askubuntu.com/questions/172982/what-is-the-difference-between-redirection-and-pipe
+http://www.datasavantconsulting.com/roland/piping.html
+
+Book: Linux Pocket Guide by Daniel J. Barrett
+http://stackoverflow.com/questions/5017373/how-to-pipe-the-output-of-the-linux-which-command-into-the-linux-file-command
+http://linux.about.com/library/cmd/blcmdl1_file.htm
+
+
+5)
+http://linux.about.com/library/cmd/blcmdl1_make.htm
